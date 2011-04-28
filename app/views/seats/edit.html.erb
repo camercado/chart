@@ -1,0 +1,11 @@
+<h1>Editing seat</h1>
+
+Your user info:
+<br />
+<li>User email: <%= current_user.email %> </li>
+<li>User id:    <%= current_user.id %> </li>
+<br />
+<%= render 'form' %>
+
+<%= link_to 'Show', @seat %> |
+<%= link_to 'Back', seats_path %>

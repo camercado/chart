@@ -1,0 +1,72 @@
+<h1>Seating Chart</h1>
+
+<%= link_to 'New User', new_user_path %>
+<%= link_to 'Login', "login" %>
+<%= link_to 'Logout', "logout" %>
+
+<br />
+<br />
+<table border="1">
+<tr>
+<th>3A </th> 
+<th>4A </th>
+<th> </th>  
+<th>5A </th> 
+<th>6A </th> 
+</tr>
+
+<tr>
+<th>7B </th> 
+<th>8B </th>
+<th> </th>  
+<th>9B </th> 
+<th>10B </th>  
+</tr>
+
+<tr>
+<th>11C </th> 
+<th>12C </th>
+<th>  </th>  
+<th>13C </th> 
+<th>14C </th>  
+</tr>
+
+<tr>
+<th>15D </th> 
+<th>16D </th>
+<th> </th>  
+<th>17D </th> 
+<th>18D </th>  
+</tr>
+
+</table>
+<br />
+
+<br />
+<td><%= link_to 'Chat', "chats" %></td>
+<br />
+<br />
+<table>
+  <tr>
+    <th>Location</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @seats.each do |seat| %>
+  <tr>
+    <td><%= seat.location %></td>
+	<td><%= seat.user_id %></td>
+	
+    <td><%= link_to 'Edit', edit_seat_path(seat) %></td>
+	<td><%= link_to 'Show', seat_path(seat) %></td>
+    <td></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'New Seat', new_seat_path %>
+<br />
+
+

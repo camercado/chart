@@ -1,0 +1,28 @@
+<h1>Listing chats</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Message</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+
+<% @chats.each do |chat| %>
+ 
+  <tr>
+    <td><%= chat.name %>:          </td>
+    <td><i><%= chat.message %></i></td>
+  </tr>
+  
+<% end %>
+
+
+</table>
+
+<br />
+
+<%= link_to 'New Chat', new_chat_path %>
+<%= link_to 'Back', seats_path %>
