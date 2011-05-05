@@ -1,5 +1,5 @@
 class ChatsController < ApplicationController
-before_filter :authenticate, :except => [:index, :show]
+
 
   # GET /chats
   # GET /chats.xml
