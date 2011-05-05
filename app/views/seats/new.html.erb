@@ -1,5 +1,15 @@
-<h1>New seat</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', seats_path %>
+<%= form_for(@seat, :remote => true) do |f| %>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :user_id %> id<br />
+    <%= f.text_field :user_id %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

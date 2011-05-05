@@ -45,28 +45,25 @@
 <br />
 <td><%= link_to 'Chat', "chats" %></td>
 <br />
-<br />
 <table>
   <tr>
-    <th>Location</th>
-    <th>User</th>
     <th></th>
     <th></th>
   </tr>
 
-<% @seats.each do |seat| %>
-  <tr>
-    <td><%= seat.location %></td>
-	<td><%= seat.user_id %></td>
-	
-    <td><%= link_to 'Edit', edit_seat_path(seat) %></td>
-	<td><%= link_to 'Show', seat_path(seat) %></td>
-    <td></td>
-  </tr>
-<% end %>
+
 </table>
 <br />
-<%= link_to 'New Seat', new_seat_path %>
+
+<div id = "seats">
+  <%= render @seats %>
+</div>
+
+<%= render :file => 'seats/new' %>
+
+
 <br />
+
+
 
 

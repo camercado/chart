@@ -1,12 +1,12 @@
 Chart::Application.routes.draw do
-  resources :chats
+  
 
   root :to => "seats#index" 
   resources :seats 
+  resources :chats
   resources :users
   resource :session  
-  resources :chats
-  
+    
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
 

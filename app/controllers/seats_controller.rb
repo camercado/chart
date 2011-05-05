@@ -4,6 +4,7 @@ class SeatsController < ApplicationController
   # GET /seats.xml
   def index
     @seats = Seat.all
+    @seat = Seat.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -36,20 +37,27 @@ class SeatsController < ApplicationController
   # GET /seats/1/edit
   def edit
     @seat = Seat.find(params[:id])
+    respond_to do |format|
+        format.html { redirect_to(@seat, :notice => 'Seat was successfully created.') }
+        format.js
+    end
   end
 
   # POST /seats
   # POST /seats.xml
   def create
     @seat = Seat.new(params[:seat])
-
+    if @seat.save
     respond_to do |format|
-      if @seat.save
         format.html { redirect_to(@seat, :notice => 'Seat was successfully created.') }
         format.xml  { render :xml => @seat, :status => :created, :location => @seat }
+        format.js
+      end
       else
+        respond_to do |format|
         format.html { render :action => "new" }
         format.xml  { render :xml => @seat.errors, :status => :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -82,6 +90,7 @@ class SeatsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(seats_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
 end

@@ -2,27 +2,20 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Message</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
   
-
-<% @chats.each do |chat| %>
- 
-  <tr>
-    <td><%= chat.name %>:          </td>
-    <td><i><%= chat.message %></i></td>
-  </tr>
-  
-<% end %>
-
+<div id = "chats">
+  <%= render @chats %>
+</div>
 
 </table>
 
+
+<%= render :file => 'chats/new' %>
+
 <br />
 
-<%= link_to 'New Chat', new_chat_path %>
 <%= link_to 'Back', seats_path %>

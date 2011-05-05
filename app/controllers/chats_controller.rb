@@ -43,14 +43,17 @@ before_filter :authenticate, :except => [:index, :show]
   # POST /chats.xml
   def create
     @chat = Chat.new(params[:chat])
-
+    if @chat.save
     respond_to do |format|
-      if @chat.save
         format.html { redirect_to(@chat, :notice => 'Chat was successfully created.') }
         format.xml  { render :xml => @chat, :status => :created, :location => @chat }
+        format.js
+      end
       else
+        respond_to do |format|
         format.html { render :action => "new" }
         format.xml  { render :xml => @chat.errors, :status => :unprocessable_entity }
+        format.js
       end
     end
   end
